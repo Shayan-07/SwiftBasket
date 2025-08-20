@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    --primary-color: #ff5252;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+* {
+    font-family: "Montserrat", sans-serif !important
+}
+
+/* ########################################   Utility Classes Starts   ######################################## */
+
+.wrapper {
+    margin: auto
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 15px;
+}
+
+.scrollable::-webkit-scrollbar-button {
+    width: 3px;
+    height: 3px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: #cacaca;
+    border-radius: 15px;
+    cursor: auto;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+.primary-color,
+.primary-hov:hover {
+    color: var(--primary-color) !important
+}
+
+.primary-bg {
+    background: var(--primary-color) !important
+}
+
+.primary-hov,
+.primary-hov * {
+    transition: color 0.2s ease-in-out !important
+}
+
+/* ########################################    Utility Classes Ends    ######################################## */
+
+
+
+/* ########################################    Mui Edit Starts    ######################################## */
+
+.MuiPopper-root * {
+    font-size: 1.1rem !important;
+}
+
+.MuiTypography-root {
+    font-size: 1.4rem !important;
+    font-weight: 500 !important;
+}
+
+.MuiTooltip-tooltip{
+    margin-top: 0.3rem !important;
+}
+
+.deliveryAddress .MuiFormControlLabel-label{
+    width: 100%;
+}
+
+.PrivateSwitchBase-input ~ span{
+    color: var(--primary-color) !important;
+}
+
+.css-3ibdi5-MuiButtonBase-root-MuiTab-root.Mui-selected,
+.css-5yif2v-MuiButtonBase-root-MuiTab-root.Mui-selected,
+.css-1ldwtng-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: var(--primary-color) !important;
+}
+
+.css-1qltlow-MuiTabs-indicator {
+    background: var(--primary-color) !important;
+}
+
+.css-120dh41-MuiSvgIcon-root {
+    font-size: 3rem;
+}
+
+.css-r3djoj-MuiTouchRipple-root * {
+    background: rgba(255, 82, 82, 0.1);
+}
+
+.footer .css-rizt0-MuiTypography-root {
+    font-size: 1.2rem !important;
+}
+
+.filterBar .filter .css-rizt0-MuiTypography-root {
+    font-size: 1.5rem !important;
+}
+
+.filterBar .css-1xcmt9q-MuiSlider-thumb {
+    width: 15px;
+    height: 15px;
+}
+
+.filterBar .css-xvk2i-MuiSlider-track {
+    border-color: var(--primary-color);
+}
+
+.filterBar .css-r64h58-MuiSlider-rail,
+.filterBar .css-1xcmt9q-MuiSlider-thumb,
+.filterBar .css-xvk2i-MuiSlider-track {
+    background: var(--primary-color);
+}
+
+.productListing .products ul li .css-1l5xwdx-MuiButtonBase-root-MuiPaginationItem-root {
+    font-size: 1.6rem !important;
+}
+
+.productListing .products ul li .css-1l5xwdx-MuiButtonBase-root-MuiPaginationItem-root svg {
+    font-size: 1.8rem !important;
+}
+
+.productListing .products ul li .css-1l5xwdx-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+.productDetailsContent .size .css-gn0oko-MuiButtonBase-root-MuiToggleButton-root {
+    color: #3e3e3e !important;
+    border-color: #3e3e3e !important;
+}
+
+.productDetailsContent .size .css-gn0oko-MuiButtonBase-root-MuiToggleButton-root.Mui-selected {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* ########################################    Mui Edit Ends    ######################################## */
+
+
+
+/* ########################################    Swiper Starts    ######################################## */
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #000 !important;
+    background-color: #fff !important;
+    border-radius: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.122), 0 1px 2px rgba(0, 0, 0, 0.239) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+.swiper-button-prev {
+    padding: 1.5rem 2.25rem 1.5rem 1.8rem !important
+}
+
+.swiper-button-next {
+    padding: 1.5rem 2rem 1.5rem 2.25rem !important
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 2.25rem !important
+}
+
+.swiper-pagination-bullet {
+    background: #fff !important;
+    border: 3px solid #fff !important;
+    padding: 3px !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: transparent !important
+}
+
+/* ########################################    Swiper Ends    ######################################## */
+
+
+
+/* ########################################    Error Message Starts    ######################################## */
+
+.errMsg,
+.successMsg {
+    animation: popup 0.25s ease-in-out;
+    z-index: 999999;
+}
+
+.errMsg .msg,
+.successMsg .msg {
+    animation: extend 7s 0.25s ease-in-out;
+}
+
+@keyframes extend {
+    0% {
+        max-width: 0;
+    }
+
+    22% {
+        max-width: 1000px;
+    }
+}
+
+@keyframes popup {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+/* ########################################    Error Message Ends    ######################################## */
+
+
+
+/* ########################################    404 Starts    ######################################## */
+
+.page404 {
+    background: url('https://cdn.dribbble.com/users/722246/screenshots/3066818/404-page.gif') no-repeat center;
+    background-size: auto;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ########################################    404 Ends    ######################################## */
+
+
+
+/* ########################################    Header Starts    ######################################## */
+
+.header-con {
+    grid-template-columns: 25% 45% 30%
+}
+
+.navSubMenu li:last-child hr {
+    display: none !important;
+}
+
+.navSubMenu li:first-child a {
+    margin-top: 0 !important;
+}
+
+.navSubMenu li:last-child a {
+    margin-bottom: 0 !important;
+}
+
+
+/* ########################################    Category Cards Starts    ######################################## */
+
+.catCard:hover img {
+    scale: 1.085;
+}
+
+.catCard:hover p {
+    color: var(--primary-color)
+}
+
+/* ########################################    Category Cards Ends    ######################################## */
+
+.adSlider .swiper-slide-active .adDetails {
+    right: 6%;
+    opacity: 1;
+}
+
+.adSlider .swiper-slide-active .adDetails p,
+.adSlider .swiper-slide-active .adDetails h2,
+.adSlider .swiper-slide-active .adDetails h3,
+.adSlider .swiper-slide-active .adDetails div {
+    right: 0 !important;
+    opacity: 1;
+}
+
+
+
+
+
+
+.blogItem:first-child {
+    margin-left: 10px;
+}
+
+.blogItem:last-child {
+    margin-right: 10px;
+}
+
+
+
+.productsList .productCard.productItem {
+    width: 23.5%;
+    margin: 0 0.75% 1.5% 0.75%;
+}
+
+.productSlider .productCard.productItem {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+.productReviews .userReview:first-child {
+    padding-top: 0 !important;
+}
+
+.productReviews .userReview:last-child {
+    padding-bottom: 0 !important;
+    border: 0px !important;
+}
+
+.addReview .css-hlbajn-MuiRating-label {
+    font-size: 2.4rem !important;
+}
+
+
+/* ########################################    Wrapper Construct    ######################################## */
+
+
+@media (min-width: 480px) {
+    .wrapper {
+        max-width: 460px
+    }
+}
+
+@media (min-width: 540px) {
+    .wrapper {
+        max-width: 500px
+    }
+}
+
+@media (min-width: 576px) {
+    .wrapper {
+        max-width: 540px
+    }
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        max-width: 720px
+    }
+}
+
+@media (min-width: 992px) {
+    .wrapper {
+        max-width: 960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        max-width: 1140px
+    }
+}
+
+@media (min-width: 1400px) {
+    .wrapper {
+        max-width: 90%
+    }
+}
