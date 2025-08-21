@@ -80,12 +80,12 @@ const Register = () => {
                 if (resData.success) {
                     setIsSubmitting(false)
                     setIsSuccess(resData.message)
-                    setIsAuthenticated(resData.auth || false)
                     navigate()
                 } else {
                     setIsSubmitting(false)
                     setIsError(resData.message)
                 }
+                setIsAuthenticated(resData.success)
             }).catch(error => {
                 setIsError('Something Went Wrong!')
                 setIsSubmitting(false)

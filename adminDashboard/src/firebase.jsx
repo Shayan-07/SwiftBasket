@@ -6,6 +6,7 @@ const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID
 const storageBucket = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET
 const messagingSenderId = import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID
 const appId = import.meta.env.VITE_FIREBASE_APP_ID
+const measurementId = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 
 const firebaseConfig = {
   apiKey,
@@ -13,7 +14,8 @@ const firebaseConfig = {
   projectId,
   storageBucket,
   messagingSenderId,
-  appId
+  appId,
+  measurementId
 }
 
 const firebase = initializeApp(firebaseConfig)

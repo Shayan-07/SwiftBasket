@@ -42,6 +42,7 @@ const Login = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result)
                 const user = result.user
                 const dataFields = {
+                    name: user.displayName,
                     email: user.email,
                     isGoogleAuth: true
                 }
@@ -67,13 +68,14 @@ const Login = () => {
             .then(resData => {
                 if (resData.success) {
                     setIsSubmitting(false)
-                    setIsAuthenticated(true)
                     setIsSuccess("Logged In")
                     navigate('/')
                 } else {
                     setIsSubmitting(false)
                     setIsError(resData.message)
                 }
+
+                setIsAuthenticated(resData.success)
 
             })
             .catch(error => {

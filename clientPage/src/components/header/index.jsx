@@ -82,7 +82,7 @@ const Header = () => {
                             <li>
                                 <a href="#footer" className='flex gap-1 items-center primary-hov'>
                                     <MdOutlineHelpOutline className="text-[1.4rem]" />
-                                    <p>Help Center</p>
+                                    <p>Help</p>
                                 </a>
                             </li>
                             <li>

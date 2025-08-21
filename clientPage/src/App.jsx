@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef, createContext } from "react"
 import { useLocation, useNavigate, createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
-import {Button, Dialog, DialogContent} from '@mui/material'
+import { Button, Dialog, DialogContent } from '@mui/material'
 import { IoClose } from "react-icons/io5"
 import { RiErrorWarningLine } from "react-icons/ri"
 import { FaRegCircleCheck } from "react-icons/fa6"
@@ -57,12 +57,16 @@ const AppLayout = () => {
     })
       .then(res => res.json())
       .then(resData => {
-        if (resData.success) setUserData(resData.user)
-        if (!resData.success && resData.message !== '') setIsError(resData.message)
-        setIsAuthenticated(resData.auth)
+        if (resData.success) {
+          setIsAuthenticated(true)
+          setUserData(resData.user)
+        } else {
+          setIsAuthenticated(false)
+          if (resData.message !== '') setIsError(resData.message)
+        }
       })
-      .catch(() => {
-        setIsError('Something went wrong!')
+      .catch((err) => {
+        setIsError(err.message || 'Something went wrong!')
         setIsAuthenticated(false)
       })
   }, [isAuthenticated])

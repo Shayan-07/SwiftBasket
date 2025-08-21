@@ -134,6 +134,15 @@ export const placeOrderController = async (req, res) => {
         const userId = req.userId
         const total = orderProducts.reduce((sum, p) => sum + p.subTotal, 3)
 
+        await Promise.all(items.map(item =>
+            ProductModel.findByIdAndUpdate(item._id, {
+                $inc: {
+                    soldItemsCount: item.quantity,
+                    stocks: -item.quantity
+                }
+            })
+        ))
+
         const newOrder = new OrderModel({
             products: orderProducts,
             user: userId,

@@ -204,7 +204,7 @@ export const loginController = async (req, res) => {
     }
 }
 
-export const goodleAuthController = async (req, res) => {
+export const googleAuthController = async (req, res) => {
     try {
         const { name, email, role } = req.body
 
@@ -256,6 +256,14 @@ export const goodleAuthController = async (req, res) => {
             sameSite: 'lax'
         })
 
+        const logToken = await newUser.generateAuthToken('30d')
+        res.cookie("logToken", logToken, {
+            expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax'
+        })
+
         return res.status(201).json({
             message: 'Registration successful',
             error: false,
@@ -265,7 +273,7 @@ export const goodleAuthController = async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({
-            message: 'Something went wrong!',
+            message: error.message || 'Something went wrong!',
             error: true,
             success: false
         })

@@ -50,7 +50,7 @@ const loginAuthentication = async (req, res, next) => {
         next()
     } catch (error) {
         return res.status(500).json({
-            message: "Something went wrong!",
+            message: err.message || "Something went wrong!",
             error: true,
             success: false,
         })

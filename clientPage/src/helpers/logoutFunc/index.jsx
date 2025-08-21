@@ -12,7 +12,7 @@ const LogoutFunc = async (appURI, setIsAuthenticated, setIsError, setIsSuccess, 
             setIsSuccess(resData.message)
             navigate('/login')
         } else {
-            setIsError(responseData.message)
+            setIsError(res.message)
         }
     } catch (err) {
         setIsError(err.message || 'Something Went Wrong!')

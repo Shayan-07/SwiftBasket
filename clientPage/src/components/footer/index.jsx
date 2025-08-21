@@ -13,7 +13,7 @@ import { FaXTwitter , FaPinterestP , FaLinkedinIn , FaInstagram  } from "react-i
 
 const Footer = () => {
     return (
-        <footer id='footer' className='bg-[#f7f7f7]'>
+        <footer className='bg-[#f7f7f7]'>
             <div className="wrapper">
                 <div className="perks flex justify-center items-center gap-36  py-16">
                     <div className="perk text-[#3e3e3e] flex flex-col gap-2 items-center group">
@@ -111,7 +111,8 @@ const Footer = () => {
                         <form className='flex flex-col gap-2'>
                             <div className="subscribe flex">
                                 <input type="email"
-                                    className='text-[1.4rem] py-3 px-4 border border-r-0 border-[#ddd] rounded-l-lg focus:border-[rgba(0,0,0,0.4)] w-full font-medium'
+                                    id='footer'
+                                    className='text-[1.4rem] py-3 px-4 border border-r-0 border-[#ddd] rounded-l-lg focus:border-[#ff5252] w-full font-medium'
                                     placeholder='Your Email Address' />
                                 <Button className='primary-bg !text-white !text-[1.4rem] !py-3 !px-4 !min-w-auto !rounded-l-none'>Subscribe</Button>
                             </div>

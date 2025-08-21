@@ -14,8 +14,8 @@ const AddressDrawer = ({ toggleDrawer, openDrawer, onSubmit, onError, handleSubm
                         <IoClose className='text-[2.2rem]' />
                     </Button>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit, onError)} className='w-full'>
-                    <div className="addressFormBody flex flex-col gap-8 px-5">
+                <form onSubmit={handleSubmit(onSubmit, onError)} className='w-full px-5'>
+                    <div className="addressFormBody flex flex-col gap-8">
                         <CustomTextField
                             label={'Address Line'}
                             {...register('addressLine', { required: `Address Line is Required` })}

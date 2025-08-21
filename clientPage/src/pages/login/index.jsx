@@ -44,6 +44,7 @@ const Login = () => {
 
                 const user = result.user
                 const dataFields = {
+                    name: user.displayName,
                     email: user.email,
                     isGoogleAuth: true
                 }

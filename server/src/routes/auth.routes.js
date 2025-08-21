@@ -6,7 +6,7 @@ import {
     verifyEmail,
     resendVerifyEmail,
     loginController,
-    goodleAuthController,
+    googleAuthController,
     forgotPassController,
     verifyPass,
     resendVerifyPass,
@@ -21,7 +21,7 @@ authRouter.post('/register', registerController)
 authRouter.post('/verifyemail', verifyEmail)
 authRouter.post('/verifyemail/resendotp', resendVerifyEmail)
 authRouter.post('/login', loginController)
-authRouter.post('/google', goodleAuthController)
+authRouter.post('/google', googleAuthController)
 authRouter.post('/forgotpassword', forgotPassController)
 authRouter.post('/verifypassword', verifyPass)
 authRouter.post('/verifypassword/resendotp', resendVerifyPass)

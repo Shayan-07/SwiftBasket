@@ -92,16 +92,14 @@ app.get('/', loginAuthentication, async (req, res) => {
                 avatar: user.avatar,
                 isGoogleAuth: user.isGoogleAuth
             },
-            auth: true,
             success: true,
             error: false
         })
     } catch (err) {
         return res.status(500).json({
-            message: 'Something went wrong!',
+            message: err.message || 'Something went wrong!',
             success: false,
-            error: true,
-            auth: undefined
+            error: true
         })
     }
 })

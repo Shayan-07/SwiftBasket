@@ -72,53 +72,67 @@ const Address = () => {
                     <div className="boxModel">
                         <UserAccoutBoxModel />
                     </div>
-                    <div className="addressBox w-[60%] h-max bg-white rounded-2xl pt-10 pb-12 px-8 text-[#3e3e3e]">
-                        <h2 className='text-[2rem] font-[600] mb-5'>Adderss</h2>
-                        <div className="addAddressBtn mb-10">
-                            <Button className='!min-w-auto !border !border-dashed !border-[rgba(0,0,0,0.2)] !bg-[#f1faff] hover:!bg-[#e7f3f9] !text-[#aab7bd] !transition-colors !duration-200 !leading-none gap-4 w-full !py-6 !rounded-lg' onClick={() => toggleDrawer(true)}>
-                                <MdOutlineAddLocationAlt className='text-[4rem]' />
-                                <p className='text-[1.5rem] font-[600]'>Add Adderss</p>
+                    {!isAddressLoading && addresses.length === 0 ?
+                        <div className="emaptyAddress items-center flex flex-col">
+                            <img src="/img/empty-address.png" alt="no address found" className='w-[50rem]' />
+                            <h2 className='mt-5 text-[3.5rem] font-bold text-[#666]'>Oops!</h2>
+                            <p className='mt-1 mb-3 text-[1.75rem] font-medium text-[#787878]'>Haven't added any addresses yet. Let's add one to get started!</p>
+                            <Button
+                                className='!min-w-auto !px-5 !py-3 primary-color !text-[1.5rem] !capitalize !leading-none !border !border-[#ff5252]'
+                                onClick={() => toggleDrawer(true)}>
+                                Add New Address
                             </Button>
-
-                            <AddressDrawer
-                                toggleDrawer={toggleDrawer}
-                                openDrawer={openDrawer}
-                                onSubmit={onSubmit}
-                                onError={onError}
-                                handleSubmit={handleSubmit}
-                                register={register}
-                                isSubmitting={isSubmitting}
-                                control={control}
-                            />
-
                         </div>
-                        <div className="addresses">
-                            {isAddressLoading ?
-                                <div className="address border border-dashed border-[rgba(0,0,0,0.2)] py-4 px-6 rounded-lg flex justify-between items-center mt-5">
-                                    <div className="addressText w-full">
-                                        <div className="mb-2">
-                                            <Skeleton variant="rectangular" width={80} height={24} />
+                        :
+                        <div className="addressBox w-[60%] h-max bg-white rounded-2xl pt-10 pb-12 px-8 text-[#3e3e3e]">
+                            <h2 className='text-[2rem] font-[600] mb-5'>Adderss</h2>
+                            <div className="addAddressBtn mb-10">
+                                <Button className='!min-w-auto !border !border-dashed !border-[rgba(0,0,0,0.2)] !bg-[#f1faff] hover:!bg-[#e7f3f9] !text-[#aab7bd] !transition-colors !duration-200 !leading-none gap-4 w-full !py-6 !rounded-lg' onClick={() => toggleDrawer(true)}>
+                                    <MdOutlineAddLocationAlt className='text-[4rem]' />
+                                    <p className='text-[1.5rem] font-[600]'>Add Adderss</p>
+                                </Button>
+                            </div>
+
+                            <div className="addresses">
+                                {isAddressLoading ?
+                                    <div className="address border border-dashed border-[rgba(0,0,0,0.2)] py-4 px-6 rounded-lg flex justify-between items-center mt-5">
+                                        <div className="addressText w-full">
+                                            <div className="mb-2">
+                                                <Skeleton variant="rectangular" width={80} height={24} />
+                                            </div>
+                                            <div className="flex gap-3 items-center mb-2">
+                                                <Skeleton variant="text" width={100} height={20} />
+                                                <Skeleton variant="text" width={120} height={20} />
+                                            </div>
+                                            <div>
+                                                <Skeleton variant="text" width="70%" height={18} />
+                                            </div>
                                         </div>
-                                        <div className="flex gap-3 items-center mb-2">
-                                            <Skeleton variant="text" width={100} height={20} />
-                                            <Skeleton variant="text" width={120} height={20} />
-                                        </div>
-                                        <div>
-                                            <Skeleton variant="text" width="70%" height={18} />
+                                        <div className="ml-4">
+                                            <Skeleton variant="rectangular" width={24} height={24} sx={{ borderRadius: '4px' }} />
                                         </div>
                                     </div>
-                                    <div className="ml-4">
-                                        <Skeleton variant="rectangular" width={24} height={24} sx={{ borderRadius: '4px' }} />
-                                    </div>
-                                </div>
-                                :
-                                addresses.map(address => {
-                                    return (
-                                        <AddressCard menu={true} address={address} setData={setAddresses} key={address._id} />
-                                    )
-                                })}
+                                    :
+                                    addresses.map(address => {
+                                        return (
+                                            <AddressCard menu={true} address={address} setData={setAddresses} key={address._id} />
+                                        )
+                                    })}
+                            </div>
                         </div>
-                    </div>
+                    }
+
+                    <AddressDrawer
+                        toggleDrawer={toggleDrawer}
+                        openDrawer={openDrawer}
+                        onSubmit={onSubmit}
+                        onError={onError}
+                        handleSubmit={handleSubmit}
+                        register={register}
+                        isSubmitting={isSubmitting}
+                        control={control}
+                    />
+
                 </div>
             </div>
         </div>

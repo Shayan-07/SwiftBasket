@@ -66,10 +66,7 @@ const AppLayout = () => {
           setUserData(resData.user)
         } else {
           setIsAuthenticated(false)
-          if (resData.message !== '') {
-            setIsAuthenticated(false)
-            setIsError(resData.message)
-          }
+          if (resData.message !== '')setIsError(resData.message)
         }
       })
       .catch(() => {

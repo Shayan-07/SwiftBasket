@@ -86,12 +86,6 @@ const Checkout = () => {
 
     const [isSubmittingCOD, setIsSubmittingCOD] = useState(false)
 
-    const handleRazorPay = () => {
-
-    }
-    const handlePayPal = () => {
-
-    }
     const handleCOD = async () => {
         setIsSubmittingCOD(true)
         const items = cart.map(cartItem => ({ product: cartItem.product._id, quantity: cartItem.quantity }))
@@ -143,48 +137,54 @@ const Checkout = () => {
                                 control={control}
                             />
                         </div>
-                        <div className="deliveryAddress">
-                            <RadioGroup
-                                value={selectedAddressId}
-                                onChange={(e) => setSelectedAddressId(e.target.value)}
-                                sx={{ width: '100%' }}
-                            >
-                                {isAddressLoading ?
-                                    <div className="address border border-dashed border-[rgba(0,0,0,0.2)] py-4 px-6 rounded-lg flex justify-between items-center mt-5">
-                                        <div className="addressText w-full">
-                                            <div className="mb-2">
-                                                <Skeleton variant="rectangular" width={80} height={24} />
+                        {!isAddressLoading && addresses.length === 0 ?
+                            <div className="emaptyAddress items-center flex flex-col">
+                                <img src="/img/empty-address.png" alt="no address found" className='w-[50rem]' />
+                            </div>
+                            :
+                            <div className="deliveryAddress">
+                                <RadioGroup
+                                    value={selectedAddressId}
+                                    onChange={(e) => setSelectedAddressId(e.target.value)}
+                                    sx={{ width: '100%' }}
+                                >
+                                    {isAddressLoading ?
+                                        <div className="address border border-dashed border-[rgba(0,0,0,0.2)] py-4 px-6 rounded-lg flex justify-between items-center mt-5">
+                                            <div className="addressText w-full">
+                                                <div className="mb-2">
+                                                    <Skeleton variant="rectangular" width={80} height={24} />
+                                                </div>
+                                                <div className="flex gap-3 items-center mb-2">
+                                                    <Skeleton variant="text" width={100} height={20} />
+                                                    <Skeleton variant="text" width={120} height={20} />
+                                                </div>
+                                                <div>
+                                                    <Skeleton variant="text" width="70%" height={18} />
+                                                </div>
                                             </div>
-                                            <div className="flex gap-3 items-center mb-2">
-                                                <Skeleton variant="text" width={100} height={20} />
-                                                <Skeleton variant="text" width={120} height={20} />
-                                            </div>
-                                            <div>
-                                                <Skeleton variant="text" width="70%" height={18} />
+                                            <div className="ml-4">
+                                                <Skeleton variant="rectangular" width={24} height={24} sx={{ borderRadius: '4px' }} />
                                             </div>
                                         </div>
-                                        <div className="ml-4">
-                                            <Skeleton variant="rectangular" width={24} height={24} sx={{ borderRadius: '4px' }} />
-                                        </div>
-                                    </div>
-                                    :
-                                    addresses.map(address => {
-                                        return (
-                                            <FormControlLabel
-                                                value={address._id}
-                                                control={<Radio size='large' />}
-                                                label={
-                                                    <AddressCard
-                                                        menu={false}
-                                                        address={address}
-                                                        setData={setAddresses}
-                                                    />}
-                                                key={address._id}
-                                            />
-                                        )
-                                    })}
-                            </RadioGroup>
-                        </div>
+                                        :
+                                        addresses.map(address => {
+                                            return (
+                                                <FormControlLabel
+                                                    value={address._id}
+                                                    control={<Radio size='large' />}
+                                                    label={
+                                                        <AddressCard
+                                                            menu={false}
+                                                            address={address}
+                                                            setData={setAddresses}
+                                                        />}
+                                                    key={address._id}
+                                                />
+                                            )
+                                        })}
+                                </RadioGroup>
+                            </div>
+                        }
                     </div>
                     <div className="checkoutBox bg-white py-10 rounded-xl grid grid-rows-[max-content_minmax(max-content_40vh)_max-content_max-content] gap-3">
                         <h2 className='text-[2rem] font-[600] pb-6 px-10'>Checkout</h2>
