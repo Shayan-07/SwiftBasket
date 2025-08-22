@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import UploadedImgBox from '../../../../components/uploadedImgBox'
-import ImgUploadBox from '../../../../components/imgUploadbox'
+import ImgUploadBox from '../../../../components/imgUploadBox'
 import { MutatingDots } from 'react-loader-spinner'
 import { FormControl, MenuItem, Select } from '@mui/material'
 import { Controller } from 'react-hook-form'

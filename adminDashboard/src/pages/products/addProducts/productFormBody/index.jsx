@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
-import ImgUploadBox from '../../../../components/imgUploadbox'
+import ImgUploadBox from '../../../../components/imgUploadBox'
 import UploadedImgBox from '../../../../components/uploadedImgBox'
 import EditorBox from '../../../../components/editorBox'
 import { Controller } from 'react-hook-form'

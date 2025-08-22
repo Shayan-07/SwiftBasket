@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form'
 import { VscSymbolKeyword } from 'react-icons/vsc'
 import { Editor } from 'react-simple-wysiwyg'
-import ImgUploadBox from '../../../../components/imgUploadbox'
+import ImgUploadBox from '../../../../components/imgUploadBox'
 import UploadedImgBox from '../../../../components/uploadedImgBox'
 import { MutatingDots } from 'react-loader-spinner'
 import EditorBox from '../../../../components/editorBox'

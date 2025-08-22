@@ -1,5 +1,5 @@
 import UploadedImgBox from '../../../../components/uploadedImgBox'
-import ImgUploadBox from '../../../../components/imgUploadbox'
+import ImgUploadBox from '../../../../components/imgUploadBox'
 import { MutatingDots } from 'react-loader-spinner'
 import { HiOutlineClipboardDocumentList } from 'react-icons/hi2'
 
