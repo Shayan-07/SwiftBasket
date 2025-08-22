@@ -135,56 +135,55 @@ const VerifyPass = () => {
     }
 
     return (
-        <div className='wrapper'>
-            <div className='verifyOTP w-[35%] text-[#3e3e3e] justify-center m-auto'>
-                <form
-                    className='my-15 py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'
-                    onSubmit={handleSubmit(onSubmit, onError)}
-                >
-                    <h2 className="text-[2.2rem] font-semibold mb-2 flex gap-2 items-center">
-                        <IoShieldCheckmarkOutline className='text-[3.5rem]' />
-                        <span>Verify OTP</span>
-                    </h2>
-                    <p className="text-[1.4rem] text-[#777] mb-8">
-                        Enter the verification code sent to {location.state?.email}.
-                    </p>
+        <div className='wrapper flex items-center h-[100vh]'>
+            <div className="authForm mx-auto w-max">
+                <div className='verifyOTP w-[32vw] text-[#3e3e3e] flex flex-col justify-center bg-white'>
+                    <form onSubmit={handleSubmit(onSubmit, onError)} className='py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
+                        <h2 className="text-[2.2rem] font-semibold mb-2 flex gap-2 items-center">
+                            <IoShieldCheckmarkOutline className='text-[3.5rem]' />
+                            <span>Verify OTP</span>
+                        </h2>
+                        <p className="text-[1.4rem] text-[#777] mb-8">
+                            Enter the verification code sent to {location.state?.email}.
+                        </p>
 
-                    <div className="flex justify-center items-center">
-                        <div className="flex flex-wrap gap-4" id="inputs">
-                            {Array(6).fill().map((_, i) => (
-                                <input
-                                    key={i}
-                                    type="text"
-                                    autoComplete="off"
-                                    {...register(`otp_${i}`, { required: true, maxLength: { value: 1, message: 'Invalid Approach' } })}
-                                    onInput={(e) => handleInput(e, i)}
-                                    onKeyUp={(e) => handleKeyUp(e, i)}
-                                    className="w-[6rem] h-[6rem] rounded-lg text-center text-[3rem] font-medium text-[#5f5f5f] bg-[rgba(227,227,227)] focus:text-[#222]"
-                                />
-                            ))}
+                        <div className="flex justify-center items-center">
+                            <div className="flex flex-wrap gap-4" id="inputs">
+                                {Array(6).fill().map((_, i) => (
+                                    <input
+                                        key={i}
+                                        type="text"
+                                        autoComplete="off"
+                                        {...register(`otp_${i}`, { required: true, maxLength: { value: 1, message: 'Invalid Approach' } })}
+                                        onInput={(e) => handleInput(e, i)}
+                                        onKeyUp={(e) => handleKeyUp(e, i)}
+                                        className="w-[6rem] h-[6rem] rounded-lg text-center text-[3rem] font-medium text-[#5f5f5f] bg-[rgba(227,227,227)] focus:text-[#222]"
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    <Button type='submit' disabled={isSubmitting}
-                        className={`
+                        <Button type='submit' disabled={isSubmitting}
+                            className={`
                             !bg-[#FF5252] !text-white !py-5 !leading-none !rounded-md !font-medium !text-[1.5rem] !min-w-auto !capitalize w-full !mt-8 !mb-4
                             ${isSubmitting ? 'opacity-60' : 'opacity-100'}
                         `}>
-                        Verify
-                    </Button>
+                            Verify
+                        </Button>
 
-                    <p className='flex gap-2 items-center justify-center tracking-[0.015em] mb-2'>
-                        <span className='text-[1.4rem] font-[420] text-[#454545]'>Didn't Receive Code?</span>
-                        <button onClick={resend} type='button' disabled={isResending || isCoolDown > 0 || isSubmitting}
-                            className={`
+                        <p className='flex gap-2 items-center justify-center tracking-[0.015em] mb-2'>
+                            <span className='text-[1.4rem] font-[420] text-[#454545]'>Didn't Receive Code?</span>
+                            <button onClick={resend} type='button' disabled={isResending || isCoolDown > 0 || isSubmitting}
+                                className={`
                                 primary-color font-medium text-[1.5rem] cursor-pointer
                                 ${isResending || isCoolDown > 0 ? 'opacity-60' : 'opacity-100'}
                             `} >
-                            Resend OTP
-                        </button>
-                        {isCoolDown > 0 && <p className='primary-color font-medium text-[1.5rem]'>({isCoolDown}s)</p>}
-                    </p>
-                </form>
+                                Resend OTP
+                            </button>
+                            {isCoolDown > 0 && <p className='primary-color font-medium text-[1.5rem]'>({isCoolDown}s)</p>}
+                        </p>
+                    </form>
+                </div>
             </div>
         </div >
     )

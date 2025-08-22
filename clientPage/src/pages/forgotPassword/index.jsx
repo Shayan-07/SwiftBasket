@@ -52,27 +52,34 @@ const ForgotPassword = () => {
     };
 
     return (
-        <div className="wrapper">
-            <div className='forgotPassword w-[35%] text-[#3e3e3e] justify-center m-auto'>
-                <form onSubmit={handleSubmit(onSubmit, onError)} className='my-15 py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
-                    <h2 className="text-[2.2rem] font-semibold mb-1">Forgot Password!</h2>
-                    <p className="text-[1.4rem] text-[#777] mb-6">Kindly enter your Email so we can send you an OTP</p>
-                    <CustomTextField
-                        type={'email'}
-                        label={'Email'}
-                        {...register('email', { required: 'Email is Required' })} />
-                    <Button type='submit' disabled={isSubmitting}
-                        className={`
+        <div className="wrapper flex items-center h-[100vh]">
+            <div className="authForm mx-auto w-max">
+                <div className='forgotPassword w-[32vw] text-[#3e3e3e] flex flex-col justify-center bg-white'>
+                    <form onSubmit={handleSubmit(onSubmit, onError)} className='py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
+                        <h2 className="text-[2.2rem] font-semibold mb-1">Forgot Password!</h2>
+                        <p className="text-[1.4rem] text-[#777] mb-6">Kindly enter your Email so we can send you an OTP</p>
+                        <CustomTextField
+                            type={'email'}
+                            label={'Email'}
+                            {...register('email', { required: `Kindly fill the Email Field` })} />
+                        <Button type='submit' disabled={isSubmitting}
+                            className={`
                                 !bg-[#FF5252] !text-white !py-5 !leading-none !rounded-md !font-medium !text-[1.5rem] !min-w-auto !capitalize w-full !mt-8 !my-4
                                 ${isSubmitting ? 'opacity-60' : 'opacity-100'} 
                             `}>
-                        Send OTP
-                    </Button>
-                    <Link to={'/login'} className='text-[1.5rem] font-medium primary-hov flex items-center justify-center gap-2 mt-4'>
-                        <MdOutlineKeyboardBackspace className='text-[1.7rem]' />
-                        <span>Back To Login</span>
-                    </Link>
-                </form>
+                            Send OTP
+                        </Button>
+                        <Link to={'/login'} disabled={isSubmitting}
+                            className={`
+                                text-[1.5rem] font-medium primary-hov flex items-center justify-center gap-2 mt-4
+                                ${isSubmitting ? 'opacity-60' : 'opacity-100'} 
+                            `}
+                        >
+                            <MdOutlineKeyboardBackspace className='text-[1.7rem]' />
+                            <span>Back To Login</span>
+                        </Link>
+                    </form>
+                </div>
             </div>
         </div>
     )

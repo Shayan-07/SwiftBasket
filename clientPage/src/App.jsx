@@ -312,9 +312,9 @@ const AppLayout = () => {
             />
             :
             <>
-              {showLayout && !isOrdered && <Header />}
+              {showLayout && isAuthenticated && !isOrdered && <Header />}
               <Outlet />
-              {showLayout && !isOrdered && <Footer />}
+              {showLayout && isAuthenticated && !isOrdered && <Footer />}
             </>
         }
 

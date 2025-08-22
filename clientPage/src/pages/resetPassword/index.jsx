@@ -71,35 +71,41 @@ const ResetPassword = () => {
     }
 
     return (
-        <div className=' wrapper'>
-            <div className='resetpassword w-[35%] text-[#3e3e3e] justify-center m-auto'>
-                <form onSubmit={handleSubmit(onSubmit, onError)} className='my-15 py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
+        <div className=' wrapper flex items-center h-[100vh]'>
+            <div className="authForm mx-auto w-max">
+                <div className='resetpassword w-[32vw] text-[#3e3e3e] justify-center bg-white'>
+                    <form onSubmit={handleSubmit(onSubmit, onError)} className='py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
 
-                    <h2 className="text-[2.2rem] font-semibold mb-1">Reset Password</h2>
-                    <p className="text-[1.4rem] text-[#777] mb-6">To protect your account, Please create a new password.</p>
-                    <CustomTextField
-                        type={'password'}
-                        label={'New Password'}
-                        {...register('newPass', {
-                            required: `Password can't be Empty`,
-                            minLength: {
-                                value: 8,
-                                message: `Password must be atleast 8 characters`
-                            }
-                        })}
-                    />
-                    <Button type='submit' disabled={isSubmitting}
-                        className={`
+                        <h2 className="text-[2.2rem] font-semibold mb-1">Reset Password</h2>
+                        <p className="text-[1.4rem] text-[#777] mb-6">To protect your account, Please create a new password.</p>
+                        <CustomTextField
+                            type={'password'}
+                            label={'New Password'}
+                            {...register('newPass', {
+                                required: `Kindly fill the Password field`,
+                                minLength: {
+                                    value: 8,
+                                    message: `Password must be atleast 8 characters`
+                                }
+                            })}
+                        />
+                        <Button type='submit' disabled={isSubmitting}
+                            className={`
                                 !bg-[#FF5252] !text-white !py-5 !leading-none !rounded-md !font-medium !text-[1.5rem] !min-w-auto !capitalize w-full !mb-4 !mt-6
                                 ${isSubmitting ? 'opacity-60' : 'opacity-100'} 
                             `}>
-                        Reset Password
-                    </Button>
-                    <Link onClick={() => goTo('/')} className='text-[1.5rem] font-medium primary-hov flex items-center justify-center gap-2 mt-4'>
-                        <RiHome2Line className='text-[1.7rem]' />
-                        <span>Go to Home</span>
-                    </Link>
-                </form>
+                            Reset Password
+                        </Button>
+                        <Link onClick={() => goTo('/')} disabled={isSubmitting}
+                            className={`
+                                text-[1.5rem] font-medium primary-hov flex items-center justify-center gap-2 mt-4
+                                ${isSubmitting ? 'opacity-60' : 'opacity-100'}
+                            `}>
+                            <RiHome2Line className='text-[1.7rem]' />
+                            <span>Go to Home</span>
+                        </Link>
+                    </form>
+                </div>
             </div>
         </div>
     )

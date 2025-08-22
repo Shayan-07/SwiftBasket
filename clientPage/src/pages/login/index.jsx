@@ -93,54 +93,57 @@ const Login = () => {
     }
 
     return (
-        <div className=' wrapper'>
-            <div className='loginForm w-[35%] text-[#3e3e3e] justify-center m-auto'>
-                <form onSubmit={handleSubmit(onSubmit, onError)} className='my-15 py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
-                    <h2 className="text-[2.2rem] font-semibold mb-1">Welcome Back!</h2>
-                    <p className="text-[1.4rem] text-[#777]">Log in to securely manage your account and enjoy a seamless shopping experience.</p>
-                    <div className="flex flex-col gap-8 my-8">
-                        <CustomTextField
-                            type={'email'}
-                            name={'email'}
-                            label={'Email'}
-                            {...register('email', { required: `Email is Required` })} />
+        <div className=' wrapper flex items-center h-[100vh]'>
+            <div className="authForm mx-auto w-max">
+                <div className='loginForm w-[32vw] text-[#3e3e3e] justify-center bg-white'>
+                    <form onSubmit={handleSubmit(onSubmit, onError)} className='py-10 px-14 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]'>
 
-                        <CustomTextField
-                            type={'password'}
-                            label={'Password'}
-                            {...register('password', { required: `Password is Required` })}
-                        />
-                    </div>
-                    <Link to={'/forgotpassword'} disabled={isSubmitting}
-                        className={`
+                        <h2 className="text-[2.2rem] font-semibold mb-1">Welcome Back!</h2>
+                        <p className="text-[1.4rem] text-[#777]">Log in to securely manage your account and enjoy a seamless shopping experience.</p>
+                        <div className="flex flex-col gap-8 my-8">
+                            <CustomTextField
+                                type={'email'}
+                                name={'email'}
+                                label={'Email'}
+                                {...register('email', { required: `Email is Required` })} />
+
+                            <CustomTextField
+                                type={'password'}
+                                label={'Password'}
+                                {...register('password', { required: `Password is Required` })}
+                            />
+                        </div>
+                        <Link to={'/forgotpassword'} disabled={isSubmitting}
+                            className={`
                             block text-[1.5rem] font-medium primary-hov w-max
                             ${isSubmitting ? 'opacity-60' : 'opacity-100'}
                         `}
-                    >Forgot Password?
-                    </Link>
-                    <Button type='submit' disabled={isSubmitting}
-                        className={`
+                        >Forgot Password?
+                        </Link>
+                        <Button type='submit' disabled={isSubmitting}
+                            className={`
                                 !bg-[#FF5252] !text-white !py-5 !leading-none !rounded-md !font-medium !text-[1.5rem] !min-w-auto !capitalize w-full !mt-8 !my-4
                                 ${isSubmitting ? 'opacity-60' : 'opacity-100'} 
                             `}>
-                        Login
-                    </Button>
-                    <p className='flex gap-2 items-center justify-center tracking-[0.015em] mb-6'>
-                        <span className='text-[1.4rem] font-[420] text-[#454545]'>Not Registered?</span>
-                        <Link to={'/register'} className='primary-color font-medium text-[1.5rem]'>Sign Up</Link>
-                    </p>
-                    <p className='text-[1.4rem] font-medium text-[#454545] mb-5 text-center'>Or continue with social account</p>
-                    <Button onClick={signInWithGoogle} disabled={isSubmitting}
-                        className={`
+                            Login
+                        </Button>
+                        <p className='flex gap-2 items-center justify-center tracking-[0.015em] mb-6'>
+                            <span className='text-[1.4rem] font-[420] text-[#454545]'>Not Registered?</span>
+                            <Link to={'/register'} className='primary-color font-medium text-[1.5rem]'>Sign Up</Link>
+                        </p>
+                        <p className='text-[1.4rem] font-medium text-[#454545] mb-5 text-center'>Or continue with social account</p>
+                        <Button onClick={signInWithGoogle} disabled={isSubmitting}
+                            className={`
                             !flex !justify-center !items-center !w-full !text-[#3e3e3e] !capitalize !py-5 !gap-4 !cursor-pointer !rounded-md 
                             !shadow-[0_0_3px_rgba(0,0,0,0.084),0_2px_3px_rgba(0,0,0,0.168)] !p-0 !min-w-auto !bg-[#f1f1f1] !leading-none !mb-5
                             ${isSubmitting ? 'opacity-60' : 'opacity-100'} 
                         `}
-                    >
-                        <FcGoogle className='text-[2.5rem] text-white' />
-                        <span className='text-[1.5rem] font-[550]'>Continue with Google</span>
-                    </Button>
-                </form>
+                        >
+                            <FcGoogle className='text-[2.5rem] text-white' />
+                            <span className='text-[1.5rem] font-[550]'>Continue with Google</span>
+                        </Button>
+                    </form>
+                </div>
             </div>
         </div>
     )

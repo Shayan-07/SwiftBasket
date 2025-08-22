@@ -49,7 +49,7 @@ const app = express()
 app
     .use(helmet({ crossOriginResourcePolicy: false }))
     .use(morgan('dev'))
-    .use(cors({ origin: true, credentials: true }))
+    .use(cors({ origin: ["https://swiftbasket-c18q.onrender.com", "localhost:5173", "localhost:5174"], credentials: true }))
     .use(express.json())
     .use(express.urlencoded({ extended: true }))
     .use(cookieParser())
@@ -110,8 +110,8 @@ app.get('/logout', loginAuthentication, async (req, res) => {
         req.user.tokens = req.user.tokens.filter(currentToken => req.token !== currentToken.token)
         res.clearCookie('logToken', {
             httpOnly: true,
-            secure: false,
-            sameSite: 'lax'
+            secure: process.env.NODE_ENV === "production",
+            sameSite: 'none'
         })
         await req.user.save()
 
