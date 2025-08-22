@@ -31,7 +31,7 @@ import AddBlog from "./pages/blogs/addBlog"
 import Register from "./pages/register"
 import VerifyEmail from "./pages/verifyEmail"
 import Login from "./pages/login"
-import ForgotPassword from "./pages/forgotpassword"
+import ForgotPassword from "./pages/forgotPassword"
 import VerifyPass from "./pages/verifyPass"
 import ResetPassword from "./pages/resetPassword"
 
