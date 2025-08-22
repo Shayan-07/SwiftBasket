@@ -49,7 +49,7 @@ const app = express()
 app
     .use(helmet({ crossOriginResourcePolicy: false }))
     .use(morgan('dev'))
-    .use(cors({ origin: true, credentials: true }))
+    .use(cors({ origin: "https://swiftbasket-j9yq.onrender.com/", credentials: true }))
     .use(express.json())
     .use(express.urlencoded({ extended: true }))
     .use(cookieParser())
