@@ -64,7 +64,7 @@ export const registerController = async (req, res) => {
             expires: new Date(Date.now() + 60 * 60 * 1000),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+            sameSite: 'none'
         })
 
         const mailResponse = await sendVerificationCode('emailVerifyOTP', 'expEmailVerifyOTP', newUser.email, 'Email Verification', emailVerifyOTPHTML)
@@ -184,7 +184,7 @@ export const loginController = async (req, res) => {
             expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+            sameSite: 'none'
         })
         user.loginDate = Date.now()
         await user.save()
@@ -223,7 +223,7 @@ export const googleAuthController = async (req, res) => {
                 expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax'
+                sameSite: 'none'
             })
 
             user.loginDate = Date.now()
@@ -253,7 +253,7 @@ export const googleAuthController = async (req, res) => {
             expires: new Date(Date.now() + 60 * 60 * 1000),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+            sameSite: 'none'
         })
 
         const logToken = await newUser.generateAuthToken('30d')
@@ -261,7 +261,7 @@ export const googleAuthController = async (req, res) => {
             expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+            sameSite: 'none'
         })
 
         return res.status(201).json({
@@ -332,7 +332,7 @@ export const verifyPass = async (req, res) => {
             expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+            sameSite: 'none'
         })
 
         await checkOTP.save()
