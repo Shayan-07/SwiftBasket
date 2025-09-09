@@ -314,6 +314,9 @@ body {
 
 /* ########################################    Category Cards Ends    ######################################## */
 
+
+/* ########################################    adSlider Starts    ######################################## */
+
 .adSlider .swiper-slide-active .adDetails {
     right: 6%;
     opacity: 1;
@@ -327,10 +330,11 @@ body {
     opacity: 1;
 }
 
+/* ########################################    adSlider Ends    ######################################## */
 
 
 
-
+/* ########################################    Blog Item Starts    ######################################## */
 
 .blogItem:first-child {
     margin-left: 10px;
@@ -340,7 +344,11 @@ body {
     margin-right: 10px;
 }
 
+/* ########################################    Blog Item Ends    ######################################## */
 
+
+
+/* ########################################    Products Starts    ######################################## */
 
 .productsList .productCard.productItem {
     width: 23.5%;
@@ -352,12 +360,6 @@ body {
     margin-bottom: 8px;
 }
 
-
-
-
-
-
-
 .productReviews .userReview:first-child {
     padding-top: 0 !important;
 }
@@ -367,13 +369,15 @@ body {
     border: 0px !important;
 }
 
+/* ########################################    Products Ends    ######################################## */
+
+
 .addReview .css-hlbajn-MuiRating-label {
     font-size: 2.4rem !important;
 }
 
 
 /* ########################################    Wrapper Construct    ######################################## */
-
 
 @media (min-width: 480px) {
     .wrapper {
