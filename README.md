@@ -5,4 +5,5 @@ This project is currently not production-ready — it is missing responsiveness 
 The purpose of hosting this project is to demonstrate my ability to design and develop a MERN stack application that covers essential features like product listings, cart management, and backend integration.
 
 🔗 Client Page: "https://swiftbasket-j9yq.onrender.com"
+
 🔗 Admin Dashboard: "https://swiftbasket-admin.onrender.com"
